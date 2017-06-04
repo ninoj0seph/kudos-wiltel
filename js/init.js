@@ -1,12 +1,11 @@
-(function($){
-  $(function(){
+
+$(document).ready(function(){
     $('.button-collapse').sideNav();
     $('.parallax').parallax();
-	$('.slider').slider({indicators : false});
+    $('.slider').slider({indicators : false});
     $('select').material_select();
-  }); // end of document ready
-})(jQuery); // end of jQuery name space
-
+    $('.scrollspy').scrollSpy();
+});
 
 function initMap() {
   var center = {lat: 6.95, lng: 124.88};
