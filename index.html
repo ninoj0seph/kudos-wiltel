@@ -3,9 +3,20 @@
 <head>
     <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no" name="viewport">
-    <title>WilTelCom</title><!-- CSS  -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="css/materialize.css" media="screen,projection" rel="stylesheet" type="text/css">
+    <title>WilTelCom</title>
+    <!--JQUERY IMPORT-->
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+
+    <!--MATERIALIZE-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+
+    <!--GOOGLE MAPS-->
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDeksGrPjMxmM7_MljTPy-ll5lHFDshvWg&callback=initMap" async defer></script>
+
+    <!--LOCAL SCRIPTS-->
+    <script src="js/init.js"></script>
     <link href="css/style.css" media="screen,projection" rel="stylesheet" type="text/css">
 </head>
 <body>
@@ -13,14 +24,12 @@
     <div class="nav-wrapper container">
         <a class="brand-logo" href="#" id="logo-container"><img src="images/wiltel_logo.png"></a>
         <ul class="right hide-on-med-and-down">
-            <li><a class="yellow-text" href="products.php">Products</a></li>
-            <li><a class="yellow-text" href="contact.php">Support</a></li>
-            <li><a class="yellow-text" href="about.php">About Us</a></li>
+            <li><a class="yellow-text navBarLinks" href="products.php">Products</a></li>
+            <li><a class="yellow-text navBarLinks" href="contact.php">Support</a></li>
+            <li><a class="yellow-text navBarLinks" href="about.php">About Us</a></li>
         </ul>
-        <ul class="side-nav" id="nav-mobile">
-            <li>
-                <a href="#">Navbar Link</a>
-            </li>
+        <ul class="side-nav indigo darken-4" id="nav-mobile">
+            <li><a class="yellow-text" href="#">Navbar Link</a></li>
         </ul><a class="button-collapse yellow-text" data-activates="nav-mobile" href="#"><i class="material-icons">menu</i></a>
     </div>
 </nav>
@@ -52,8 +61,8 @@
             <li>
                 <img src="images/htcu11.jpg"> <!-- random image -->
                 <div class="caption center-align">
-                    <h3>htc u11</h3>
-                    <h5 class="light grey-text text-lighten-3">Squeeze Brilliant U</h5>
+                    <h3 class="black-text">htc u11</h3>
+                    <h5 class="light text-lighten-3 black-text">Squeeze Brilliant U</h5>
                 </div>
             </li>
         </ul>
@@ -61,7 +70,7 @@
 </div>
 <div class="container">
     <div class="section">
-        <h3>Our Products</h3><!--   Icon Section   -->
+        <h3>Our Products</h3>
         <div class="row">
             <div class="col s12 m4">
                 <div class="icon-block">
@@ -99,11 +108,11 @@
         </div>
     </div>
 </div>
-<div class="parallax-container valign-wrapper">
+<div class="parallax-container">
     <div class="section no-pad-bot">
         <div class="container">
             <div class="row center">
-                <h3 class="header col s12 darken-4 left-align"><i>Locations</i></h3>
+                <h3 class="header col s12 darken-4 left-align white-text"><i>Locations</i></h3>
             </div>
         </div>
     </div>
@@ -112,15 +121,34 @@
 <div class="container">
     <div class="section">
         <div class="row">
-            <div class="col s12 center">
-                <h3><i class="mdi-content-send brown-text"></i></h3>
-                <p>WILTELCOM opened its first branch in October 1999, located at SOUTHSEAS COMPLEX, Cotabato City. Its primary purpose is to cater to the mass market a showcase of different cellular phones and its accessories. With the rapid increase in consumer demand, its 2nd outlet at CST Fashion Mart, still in Cotabato City, was opened.</p>
-                <p>With the huge potential market in this line of business and considering the increasing “need” of the consumers, WILTELCOM confidently opened its first branch located at Guerrero Street, Davao City, on February 28, 2001.</p>
-                <p>WILTELCOM has been committed with its quality service to its customers since day one it operated. Continuous patronage from long-time customers made it possible for WILTELCOM to open additional branches located inside major shopping malls in Davao City.</p>
-                <p>On June 8, 2001, WILTELCOM – 2nd Level Gaisano Mall was inaugurated. Then opened WILTELCOM – 3rd Level SM City Davao on November 16, 2004.</p>
-                <p>WILTELCOM is equipped with experienced and committed service personnel in their branches. This made its way to be awarded as the Exclusive Service Center of SAMSUNG in Davao City. It served the public on February 21, 2004.</p>
-                <p>Through the years, WILTELCOM has committed in providing its customers with the best quality products and services. It continues to grow and equip its personnel with seminars and product updates to address proper customer concerns.</p>
+            <div class="input-field col s12 m6">
+                <select multiple icons>
+                    <option value="all" disabled selected>Select All Stores</option>
+                    <option value="apple" data-icon="images/apple-thumb.png" class="circle">Apple iCenter</option>
+                    <option value="samsung" data-icon="images/samsung-thumb.png" class="circle">Samsung Mobile Shop</option>
+                    <option value="lg" data-icon="images/lg-thumb.png" class="circle">LG Mobile Shop</option>
+                    <option value="myphone" data-icon="images/myphone-thumb.png" class="circle">MyPhone Store</option>
+                    <option value="sony" data-icon="images/sony-thumb.png" class="circle">Sony Mobile Center</option>
+                    <option value="cherry" data-icon="images/cherry-thumb.png" class="circle">Cherry Mobile Store</option>
+                    <option value="htc" data-icon="images/htc-thumb.jpg" class="circle">HTC Mobile Center</option>
+                    <option value="blackberry" data-icon="images/rim-thumb.jpg" class="circle">Blackberry Shop</option>
+                    <option value="nokia" data-icon="images/nokia-thumb.jpg" class="circle">Nokia Store</option>
+                    <option value="olympus" data-icon="images/olym-thumb.png" class="circle">Olympus Camera Store</option>
+                </select>
+                <label>Select Branch Type</label>
             </div>
+            <div class="input-field col s12 m6">
+                <select multiple>
+                    <!--<option value="all" disabled selected>Select City</option>-->
+                    <option value="1" selected>Davao City</option>
+                    <option value="2" selected>General Santos City</option>
+                    <option value="3" selected>Cotabato City</option>
+                </select>
+                <label>Select Location</label>
+            </div>
+        </div>
+        <div class="row mapContainer container">
+            <div id="map"></div>
         </div>
     </div>
 </div>
@@ -128,7 +156,7 @@
     <div class="section no-pad-bot">
         <div class="container">
             <div class="row center">
-                <h3 class="header col s12 darken-4 left-align"><i>About Us</i></h3>
+                <h3 class="header col s12 darken-4 left-align white-text"><i>About Us</i></h3>
             </div>
         </div>
     </div>
@@ -153,7 +181,7 @@
     <div class="section no-pad-bot">
         <div class="container">
             <div class="row center">
-                <h3 class="header col s12 darken-4 right-align"><i>Contact Us</i></h3>
+                <h3 class="header col s12 darken-4 right-align white-text"><i>Contact Us</i></h3>
             </div>
         </div>
     </div>
@@ -164,7 +192,7 @@
         <div class="row">
             <div class="col s12 center">
                 <div class="row">
-                    <form class="col s12">
+                    <div class="col s12">
                         <div class="row">
                             <div class="input-field col s6 ">
                                 <i class="material-icons prefix">perm_identity</i>
@@ -191,17 +219,17 @@
                         </div>
                         <div class="row">
                             <div class="input-field col s12">
-                                <i class="material-icons prefix">message</i>
+                                <i class="material-icons prefix">mode_edit</i>
                                 <textarea id="textarea1" class="materialize-textarea"></textarea>
                                 <label for="textarea1">Message</label>
                             </div>
                         </div>
                         <div class="row right-align">
-                            <button class="btn waves-effect waves-light right indigo darken-4" type="submit" name="action">Submit
+                            <button class="btn waves-effect waves-light right indigo darken-4 yellow-text" type="submit" name="action">Submit
                                 <i class="material-icons right">send</i>
                             </button>
                         </div>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>
@@ -235,9 +263,6 @@
             All Rights Reserved &reg <a class="yellow-text text-lighten-3" href="https://google.com">WilTelCom</a>
         </div>
     </div>
-</footer><!--  Scripts-->
-<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-<script src="js/materialize.js"></script>
-<script src="js/init.js"></script>
+</footer>
 </body>
 </html>
