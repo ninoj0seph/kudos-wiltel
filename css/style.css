@@ -1,10 +1,7 @@
-/* Custom Stylesheet */
-/**
- * Use this file to override Materialize files so you can update
- * the core Materialize files in the future
- *
- * Made By MaterializeCSS.com
- */
+/*Global Settings*/
+body{
+  color: #1a237e;
+}
 
 nav ul a,
 nav .brand-logo {
@@ -15,20 +12,121 @@ p {
   line-height: 2rem;
 }
 
-.button-collapse {
-  color: #26a69a;
+
+/*NavBar Settings*/
+nav{
+  position: fixed;
+  z-index: 99 !important;
 }
+
+#index-banner{
+  padding-top: 5%;
+}
+
+/*Parallax Effect*/
 
 .parallax-container {
   min-height: 380px;
   line-height: 0;
   height: auto;
-  color: rgba(255,255,255,.9);
 }
-  .parallax-container .section {
-    width: 100%;
-  }
 
+.parallax-container .section {
+  width: 100%;
+}
+
+.icon-block {
+  padding: 0 15px;
+}
+.icon-block .material-icons {
+  font-size: inherit;
+}
+
+footer.page-footer {
+  margin: 0;
+}
+
+/*Scale Effect To Brand Photos*/
+.brand-container{
+  height: 10vw;
+}
+
+.brand-container > img{
+  height: auto;
+  width: 100%;
+  transition: all .2s ease-in-out;
+}
+
+.brand-container > img:hover {
+  transform: scale(1.1);
+}
+
+/*Google Maps Sizing*/
+#map{
+  position: relative;
+  left: 10px;
+  height: 100%;
+  width:100%;
+}
+.mapContainer{
+  height:30vw;
+  width:100%
+}
+
+ {
+  color: #1a237e;
+}
+
+/* Color Setings For Input Boxes and Dropdown*/
+.input-field input[type=text]:focus + label,
+.input-field input[type=tel]:focus + label,
+.input-field input[type=email]:focus + label,
+.input-field textarea#textarea1:focus + label,
+ul.dropdown-content.select-dropdown li span,
+.input-field .prefix.active,
+.input-field label{
+  color: #1a237e ;
+}
+
+.input-field input[type=text]:focus,
+.input-field input[type=tel]:focus,
+.input-field input[type=email]:focus,
+.input-field textarea#textarea1:focus{
+  border-bottom: 1px solid #1a237e ;
+  box-shadow: 0 1px 0 0 #1a237e ;
+}
+
+.navBarLinks,
+.footerLinks a{
+  position: relative;
+  text-decoration: none;
+}
+
+/* NavBar Underline Effect*/
+.navBarLinks:before,
+.footerLinks a:before{
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #ffeb3b;
+  visibility: hidden;
+  -webkit-transform: scaleX(0);
+  transform: scaleX(0);
+  -webkit-transition: all 0.3s ease-in-out 0s;
+  transition: all 0.3s ease-in-out 0s;
+}
+
+.navBarLinks:hover:before,
+.footerLinks a:hover:before{
+  visibility: visible;
+  -webkit-transform: scaleX(1);
+  transform: scaleX(1);
+}
+
+/*Media Queries*/
 @media only screen and (max-width : 992px) {
   .parallax-container .section {
     position: absolute;
@@ -43,29 +141,4 @@ p {
   #index-banner .section {
     top: 0;
   }
-}
-
-.icon-block {
-  padding: 0 15px;
-}
-.icon-block .material-icons {
-  font-size: inherit;
-}
-
-footer.page-footer {
-  margin: 0;
-}
-
-.brand-container{
-  height: 10vw;
-}
-
-.brand-container > img{
-  height: auto;
-  width: 100%;
-  transition: all .2s ease-in-out;
-}
-
-.brand-container > img:hover {
-  transform: scale(1.1);
 }

@@ -3,9 +3,20 @@
 <head>
     <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no" name="viewport">
-    <title>WilTelCom</title><!-- CSS  -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="css/materialize.css" media="screen,projection" rel="stylesheet" type="text/css">
+    <title>WilTelCom</title>
+    <!--JQUERY IMPORT-->
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+
+    <!--MATERIALIZE-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+
+    <!--GOOGLE MAPS-->
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDeksGrPjMxmM7_MljTPy-ll5lHFDshvWg&callback=initMap" async defer></script>
+
+    <!--LOCAL SCRIPTS-->
+    <script src="js/init.js"></script>
     <link href="css/style.css" media="screen,projection" rel="stylesheet" type="text/css">
 </head>
 <body>
@@ -13,20 +24,13 @@
     <div class="nav-wrapper container">
         <a class="brand-logo" href="#" id="logo-container"><img src="images/wiltel_logo.png"></a>
         <ul class="right hide-on-med-and-down">
-            <li>
-                <a href="products.php">Products</a>
-            </li>
-            <li>
-                <a href="contact.php">Support</a>
-            </li>
-            <li>
-                <a href="about.php">About Us</a>
-            </li>
+            <li><a class="yellow-text navBarLinks" href="#location">Products</a></li>
+            <li><a class="yellow-text navBarLinks" href="#location">Locations</a></li>
+            <li><a class="yellow-text navBarLinks" href="#about">About Us</a></li>
+            <li><a class="yellow-text navBarLinks" href="#contact">Contact Us</a></li>
         </ul>
-        <ul class="side-nav" id="nav-mobile">
-            <li>
-                <a href="#">Navbar Link</a>
-            </li>
+        <ul class="side-nav indigo darken-4" id="nav-mobile">
+            <li><a class="yellow-text" href="#">Navbar Link</a></li>
         </ul><a class="button-collapse yellow-text" data-activates="nav-mobile" href="#"><i class="material-icons">menu</i></a>
     </div>
 </nav>
@@ -58,8 +62,8 @@
             <li>
                 <img src="images/htcu11.jpg"> <!-- random image -->
                 <div class="caption center-align">
-                    <h3>htc u11</h3>
-                    <h5 class="light grey-text text-lighten-3">Squeeze Brilliant U</h5>
+                    <h3 class="black-text">htc u11</h3>
+                    <h5 class="light text-lighten-3 black-text">Squeeze Brilliant U</h5>
                 </div>
             </li>
         </ul>
@@ -67,7 +71,7 @@
 </div>
 <div class="container">
     <div class="section">
-        <h2>Our Products</h2><!--   Icon Section   -->
+        <h3>Our Products</h3>
         <div class="row">
             <div class="col s12 m4">
                 <div class="icon-block">
@@ -105,11 +109,55 @@
         </div>
     </div>
 </div>
-<div class="parallax-container valign-wrapper">
+<div class="parallax-container" id="location">
     <div class="section no-pad-bot">
         <div class="container">
             <div class="row center">
-                <h5 class="header col s12 light">A modern responsive front-end framework based on Material Design</h5>
+                <h3 class="header col s12 darken-4 left-align white-text"><i>Locations</i></h3>
+            </div>
+        </div>
+    </div>
+    <div class="parallax"><img alt="Unsplashed background img 2" src="images/locations.jpg"></div>
+</div>
+<div class="container">
+    <div class="section">
+        <div class="row">
+            <div class="input-field col s12 m6">
+                <select multiple icons>
+                    <option value="all" disabled selected>Select All Stores</option>
+                    <option value="apple" data-icon="images/apple-thumb.png" class="circle">Apple iCenter</option>
+                    <option value="samsung" data-icon="images/samsung-thumb.png" class="circle">Samsung Mobile Shop</option>
+                    <option value="lg" data-icon="images/lg-thumb.png" class="circle">LG Mobile Shop</option>
+                    <option value="myphone" data-icon="images/myphone-thumb.png" class="circle">MyPhone Store</option>
+                    <option value="sony" data-icon="images/sony-thumb.png" class="circle">Sony Mobile Center</option>
+                    <option value="cherry" data-icon="images/cherry-thumb.png" class="circle">Cherry Mobile Store</option>
+                    <option value="htc" data-icon="images/htc-thumb.jpg" class="circle">HTC Mobile Center</option>
+                    <option value="blackberry" data-icon="images/rim-thumb.jpg" class="circle">Blackberry Shop</option>
+                    <option value="nokia" data-icon="images/nokia-thumb.jpg" class="circle">Nokia Store</option>
+                    <option value="olympus" data-icon="images/olym-thumb.png" class="circle">Olympus Camera Store</option>
+                </select>
+                <label>Select Branch Type</label>
+            </div>
+            <div class="input-field col s12 m6">
+                <select multiple>
+                    <!--<option value="all" disabled selected>Select City</option>-->
+                    <option value="1" selected>Davao City</option>
+                    <option value="2" selected>General Santos City</option>
+                    <option value="3" selected>Cotabato City</option>
+                </select>
+                <label>Select Location</label>
+            </div>
+        </div>
+        <div class="row mapContainer container">
+            <div id="map"></div>
+        </div>
+    </div>
+</div>
+<div class="parallax-container valign-wrapper" id="about">
+    <div class="section no-pad-bot">
+        <div class="container">
+            <div class="row center">
+                <h3 class="header col s12 darken-4 left-align white-text"><i>About Us</i></h3>
             </div>
         </div>
     </div>
@@ -120,7 +168,6 @@
         <div class="row">
             <div class="col s12 center">
                 <h3><i class="mdi-content-send brown-text"></i></h3>
-                <h4>About Us</h4>
                 <p>WILTELCOM opened its first branch in October 1999, located at SOUTHSEAS COMPLEX, Cotabato City. Its primary purpose is to cater to the mass market a showcase of different cellular phones and its accessories. With the rapid increase in consumer demand, its 2nd outlet at CST Fashion Mart, still in Cotabato City, was opened.</p>
                 <p>With the huge potential market in this line of business and considering the increasing “need” of the consumers, WILTELCOM confidently opened its first branch located at Guerrero Street, Davao City, on February 28, 2001.</p>
                 <p>WILTELCOM has been committed with its quality service to its customers since day one it operated. Continuous patronage from long-time customers made it possible for WILTELCOM to open additional branches located inside major shopping malls in Davao City.</p>
@@ -131,67 +178,87 @@
         </div>
     </div>
 </div>
-<div class="parallax-container valign-wrapper">
+<div class="parallax-container valign-wrapper" id="contact">
     <div class="section no-pad-bot">
         <div class="container">
             <div class="row center">
-                <h5 class="header col s12 light">A modern responsive front-end framework based on Material Design</h5>
+                <h3 class="header col s12 darken-4 right-align white-text"><i>Contact Us</i></h3>
             </div>
         </div>
     </div>
     <div class="parallax"><img alt="Unsplashed background img 3" src="images/aboutUs1.jpeg"></div>
 </div>
+<div class="container">
+    <div class="section">
+        <div class="row">
+            <div class="col s12 center">
+                <div class="row">
+                    <div class="col s12">
+                        <div class="row">
+                            <div class="input-field col s6 ">
+                                <i class="material-icons prefix">perm_identity</i>
+                                <input id="icon_prefix" type="text" class="validate">
+                                <label for="icon_prefix">Name</label>
+                            </div>
+                            <div class="input-field col s6">
+                                <i class="material-icons prefix">phone</i>
+                                <input id="icon_telephone" type="tel" class="validate">
+                                <label for="icon_telephone">Telephone</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s6">
+                                <i class="material-icons prefix">email</i>
+                                <input id="email" type="email" class="validate">
+                                <label for="email" data-error="wrong" data-success="right">Email</label>
+                            </div>
+                            <div class="input-field col s6 ">
+                                <i class="material-icons prefix">forum</i>
+                                <input type="text" class="validate">
+                                <label for="icon_prefix">Subject</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <i class="material-icons prefix">mode_edit</i>
+                                <textarea id="textarea1" class="materialize-textarea"></textarea>
+                                <label for="textarea1">Message</label>
+                            </div>
+                        </div>
+                        <div class="row right-align">
+                            <button class="btn waves-effect waves-light right indigo darken-4 yellow-text" type="submit" name="action">Submit
+                                <i class="material-icons right">send</i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <footer class="page-footer indigo darken-4">
     <div class="container">
         <div class="row">
             <div class="col l6 s12">
-                <h5 class="white-text">WilTelCom</h5>
+                <h5 class="yellow-text">WilTelCom</h5>
                 <p class="grey-text text-lighten-4">Where you're excellent service is our guarantee.</p>
             </div>
             <div class="col l3 s12">
-                <h5 class="white-text">Settings</h5>
-                <ul>
-                    <li>
-                        <a class="white-text" href="#!">Link 1</a>
-                    </li>
-                    <li>
-                        <a class="white-text" href="#!">Link 2</a>
-                    </li>
-                    <li>
-                        <a class="white-text" href="#!">Link 3</a>
-                    </li>
-                    <li>
-                        <a class="white-text" href="#!">Link 4</a>
-                    </li>
-                </ul>
-            </div>
-            <div class="col l3 s12">
-                <h5 class="white-text">Connect</h5>
-                <ul>
-                    <li>
-                        <a class="white-text" href="#!">Link 1</a>
-                    </li>
-                    <li>
-                        <a class="white-text" href="#!">Link 2</a>
-                    </li>
-                    <li>
-                        <a class="white-text" href="#!">Link 3</a>
-                    </li>
-                    <li>
-                        <a class="white-text" href="#!">Link 4</a>
-                    </li>
+                <h5 class="yellow-text">Links</h5>
+                <ul class="footerLinks">
+                    <li><a class="white-text" href="#location">Products</a></li>
+                    <li><a class="white-text" href="#location">Locations</a></li>
+                    <li><a class="white-text" href="#about">About Us</a></li>
+                    <li><a class="white-text" href="#contact">Contact Us</a></li>
                 </ul>
             </div>
         </div>
     </div>
     <div class="footer-copyright">
         <div class="container">
-            Made by <a class="brown-text text-lighten-3" href="http://materializecss.com">Materialize</a>
+            All Rights Reserved &reg <a class="yellow-text text-lighten-3" href="https://google.com">WilTelCom</a>
         </div>
     </div>
-</footer><!--  Scripts-->
-<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-<script src="js/materialize.js"></script>
-<script src="js/init.js"></script>
+</footer>
 </body>
 </html>
